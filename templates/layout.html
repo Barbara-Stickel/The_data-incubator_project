@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Energy Consumption</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/additional_css.css') }}">
+        <!--<link href="tuto.css" rel="stylesheet">-->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <style>
+            backgroun-color: #fff
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <section class="row">
+                <h2>
+                    Energy Consumption Application 
+                </h2>
+                <h3>Motivation</h3>
+                <p>
+                   Environment is a topical issue today and there are more and more information available. However, it is difficult to measure our personal impact on the environment or to know how well we are doing in our personal life.
+                    Therefore, my project aims to provide as many information as possible on the energy consumption. It will predict what should be the energy consumption of a given house based on the location, the weather, the number of people living there, the number of fridge they use… It will also provide a comparison with the state average, national average etc. In addition, it will compare the price of the electricity across the country and provide an estimation how it will increase or decrease in the coming years. 
+                    Those information will provide to the consumer more control on his 
+                    energy consumption and electric bill.
+                </p>
+                <h3>
+                    The data
+                </h3>
+                <p>
+                    To tackle this problem, I am using data from the US government. For the first part, I am using a survey conducted among 12,083 households which provides their energy consumption and their characteristics  (1, 000 different characteristics  are present in the data set):  <a href="https://www.eia.gov/consumption/residential/data/2009/index.php?view=microdata">here.</a> <br/>
+                    
+                    For the second part, I am using the data about all the utilities in the US since 2001 with the price of the electricity, the sales, the number of consumers and their resources: <a href="https://www.eia.gov/electricity/sales_revenue_price/">here.</a>
+                </p>
+
+    
+            </section>
+            <div class="container"> 
+                <h3>First part</h3>
+                <div class="row">
+                    <div class="col-sm-9">{% include 'KWHperhousing-typeperregion.html' %}</div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-9">This graph shows the electricity consumption for different regions and different types of household</div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-9">{% include 'KWHperhousing-typeperclimate.html' %}</div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-9">This graph shows the electricity consumption for different climates and different types of household</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-9">{% include 'KWHperfridge.html' %}</div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-9">This graph shows the electricity consumption on the number of fridge</div>
+                </div>
+                <br>
+                <br>
+                
+                <div class="row">
+                    <p>
+                        Conclusion: We can see from the graphs that the energy consumption is linked with the climate, the type of household, the number of electronics appliance they use... Therfore, when looking at all the caracteristics we should be able to predict the energy consumption of the household.
+                    </p>
+                </div>
+            </div>
+            <div class="container">
+                <h3>Second part</h3>
+                <div class="row">
+                    <div class="col-sm-6">{% include 'electricityprice1.html' %}</div>
+                    <div class="col-sm-6">{% include 'electricityprice3.html' %}</div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">This graphs shows the average price of the electricity by state.</div>
+                    <div class="col-sm-6">This graph shows the price of the electricity on the number of consumers for all the utilities in the US.</div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <p>
+                        Conclusion: We can see from the graphs that the price of the electricity fluctuates a lot across the US and there is a much higher variance when the number of customers is low. The next step would be to look at the source of the different utilities and to search for a correlation. 
+                    </p>
+                </div>
+            </div>    
+        </div>
+    </body>
+</html>
