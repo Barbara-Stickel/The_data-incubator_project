@@ -1,11 +1,11 @@
 {
-  "name": "Flask Heroku French Election",
-  "description": "Web application about French Election",
+  "name": "Flask Heroku Energy Consumption",
+  "description": "Web application",
   "keywords": [
     "flask",
     "python"
   ],
-  "repository": "https://github.com/Barbara-Stickel/FrenchElection",
+  "repository": "https://github.com/Barbara-Stickel/The_data-incubator_project",
   "addons": [
     "heroku-postgresql"
   ]
